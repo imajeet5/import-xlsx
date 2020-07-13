@@ -1,5 +1,4 @@
 const mysql = require("mysql");
-const util = require("util");
 const fs = require("fs");
 
 const db = mysql.createConnection({
@@ -24,13 +23,11 @@ const executeQuery = (query, rows = null) => {
 };
 
 const createTable = async () => {
-  try {
-    await executeQuery("DROP TABLE IF EXISTS `employee_info`");
-    const query = fs.readFileSync(`${__dirname}/create-table.sql`, { encoding: "utf-8" });
-    return await executeQuery(query);
-  } catch (error) {
-    throw new Error(error)
-  }
+  await executeQuery("DROP TABLE IF EXISTS `employee_info`");
+  const query = fs.readFileSync(`${__dirname}/create-table.sql`, {
+    encoding: "utf-8",
+  });
+  return await executeQuery(query);
 };
 
 module.exports = {

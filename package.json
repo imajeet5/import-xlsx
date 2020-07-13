@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "import xls file and entry to db",
   "main": "index.js",
+  "repository": {
+    "github": "https://github.com/imajeet5/import-xlsx.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
